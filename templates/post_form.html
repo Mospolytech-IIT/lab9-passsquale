@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Post</title>
+</head>
+<body>
+    <h1>Add New Post</h1>
+    <form action="/posts/new" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required><br><br>
+
+        <label for="content">Content:</label>
+        <textarea name="content" id="content" required></textarea><br><br>
+
+        <label for="user_id">Author:</label>
+        <select name="user_id" id="user_id">
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
